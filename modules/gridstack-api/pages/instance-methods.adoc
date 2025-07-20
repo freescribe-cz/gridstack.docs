@@ -1,3 +1,349 @@
 = Instance GridStack methods
 
-instance-methods.adoc
+== Overview
+
+*Instance methods*: xref:instancemethod-addwidget[addWidget()] | xref:instancemethod-batchupdate[batchUpdate()] | xref:instancemethod-compact[compact()] | xref:instancemethod-cellheight[cellHeight()] | xref:instancemethod-cellwidth[cellWidth()] | xref:instancemethod-column[column()] | xref:instancemethod-destroy[destroy()] | xref:instancemethod-disable[disable()] | xref:instancemethod-enable[enable()] | xref:instancemethod-enablemove[enableMove()] | xref:instancemethod-enableresize[enableResize()] | xref:instancemethod-float[float()] | xref:instancemethod-getcellheight[getCellHeight()] | xref:instancemethod-getcellfrompixel[getCellFromPixel()] | xref:instancemethod-getcolumn[getColumn()] | xref:instancemethod-getgriditems[getGridItems()] | xref:instancemethod-getmargin[getMargin()] | xref:instancemethod-isareaempty[isAreaEmpty()] | xref:instancemethod-load[load()] | xref:instancemethod-makewidget[makeWidget()] | xref:instancemethod-makesubgrid[makeSubGrid()] | xref:instancemethod-margin[margin()] | xref:instancemethod-movable[movable()] | xref:instancemethod-removewidget[removeWidget()] | xref:instancemethod-removeall[removeAll()] | xref:instancemethod-resizable[resizable()] | xref:instancemethod-resizetocontent[resizeToContent()] | xref:instancemethod-rotate[rotate()] | xref:instancemethod-save[save()] | xref:instancemethod-setanimation[setAnimation()] | xref:instancemethod-setstatic[setStatic()] | xref:instancemethod-update[update()] | xref:instancemethod-willitfit[willItFit()]
+
+== Instance methods
+
+[id="instancemethod-addwidget"]
+addWidget(GridStackWidget options):: 
+Creates a new widget and returns it.
++
+The widget will always be placed even if the widget height is greater than the actual grid height.
+If you need an additional check, use the `willItFit()` method before calling `addWidget()`.
++
+Returns: GridItemHTMLElement
++
+Parameters:
+
+* GridStackWidget options -- position (`x`, `y`), size (`w`, `h`), and so on -- see xref:gridstack-api:gridstackwidget-options.adoc[GridStackWidget options].
+
++
+[source,javascript]
+----
+let grid = GridStack.init();
+grid.addWidget({w: 3, content: 'hello'});
+----
+
+[id="instancemethod-batchupdate"]
+batchUpdate(flag = true)::
+Use before calling a bunch of addWidget() to prevent unnecessary re-layouts in between (more efficient) and get a single event callback.
+You will see no changes until `batchUpdate(false)` is called.
+
+[id="instancemethod-compact"]
+compact(layout: CompactOptions = 'compact', doSort = true)::
+Re-layouts grid items to reclaim any empty space.
+Options are:
+
+* `'list'` -- keep the widget's order from left to right the same, even if that means leaving an empty slot if things don't fit
+* `'compact'` -- might re-order items to fill any empty space
+* `doSort` -- `false` to let you do your own sorting ahead in case you need to control a different order. (default to sort)
+
+[id="instancemethod-cellheight"]
+cellHeight(val: number, update = true)::
+Update the current cell height -- see xref:gridstack-options.adoc#grid-option-cellheight[cellHeight option] format.
+This method rebuilds an internal CSS stylesheet (unless optional update=false).
++
+WARNING: You can expect performance issues if call this method too often.
+
++
+[source,javascript]
+----
+grid.cellHeight(grid.cellWidth() * 1.2);
+----
+
+[id="instancemethod-cellwidth"]
+cellWidth()::
+Returns the current cell width (grid width / # of columns).
+
+[id="instancemethod-column"]
+column(column: number, layout: ColumnOptions = 'moveScale')::
+Sets the number of columns in the grid.
+Will update existing widgets to conform to new number of columns, as well as cache the original layout so you can revert back to previous positions without loss.
+Parameters:
+
+* `column` - _integer > 0_ (default 12)
+* `layout` - specify the type of re-layout that will happen (position, size, and so on):
+`'list'` | `'compact'` | `'moveScale'` | `'move'` | `'scale'` | `'none'` | `((column: number, oldColumn: number, nodes: GridStackNode[], oldNodes: GridStackNode[]) => void)`;
+** `'list'` - treat items as sorted list, keeping items (un-sized unless too big for column count) sequentially reflowing them
+** `'compact'` - similar to list, but using compact() method which will possibly re-order items if an empty slots are available due to a larger item needing to be pushed to next row
+** `'moveScale'` - will scale and move items by the ratio new newColumnCount / oldColumnCount
+** `'move'` | `'scale'` - will only size or move items
+** `'none'` will leave items unchanged, unless they don't fit in column count
+** _custom function_ that takes the new/old column count and array of new/old positions
++
+NOTE: The new list may be partially already filled if we have a partial cache of the layout at that size (items were added later).
+If a complete cache is present, this won't get called at all.
+
+[id="instancemethod-destroy"]
+destroy([removeDOM])::
+Destroys a grid instance.
+Parameters:
+
+* removeDOM -- if false nodes and grid will not be removed from the DOM (Optional. Default true).
+
+[id="instancemethod-disable"]
+disable()::
+Disables moving/resizing of widgets.
+This is a shortcut for:
++
+[source,javascript]
+----
+grid.enableMove(false);
+grid.enableResize(false);
+----
+
+[id="instancemethod-enable"]
+enable()::
+Enables moving/resizing of widgets.
+This is a shortcut for:
++
+[source,javascript]
+----
+grid.enableMove(true);
+grid.enableResize(true);
+----
+
+[id="instancemethodenablemove"]
+enableMove(doEnable)::
+Enables/disables widget moving (default: true) and sets the `disableDrag` grid option.
+This is a shortcut for:
++
+[source,javascript]
+----
+grid.opts.disableDrag = !doEnable;
+grid.movable('.grid-stack-item', doEnable);
+----
+
+[id="instancemethod-enableresize"]
+enableResize(doEnable)::
+Enables/disables widget resizing (default: true) and sets the `disableResize` grid option.
+This is a shortcut for:
++
+[source,javascript]
+----
+grid.opts.disableResize = !doEnable;
+grid.resizable('.grid-stack-item', doEnable);
+----
+
+[id="instancemethod-float"]
+float(val?)::
+Sets/gets floating widgets (default: false)
+
+* `val` -- boolean to set true/false, else get the current value
+
+[id="instancemethod-getcellheight"]
+getCellHeight()::
+Returns the current cell height.
+
+[id="instancemethod-"]
+getCellFromPixel(position[, useOffset])::
+Gets the position of the cell under a pixel on screen.
++
+Returns: an object with properties x and y, i.e. the column and row in the grid.
++
+Parameters :
+
+* `position` -- the position of the pixel to resolve in absolute coordinates, as an object with top and left properties
+* `useOffset` -- if `true`, value will be based on offset vs position (Optional. Default false).
+Useful when grid is within `position: relative` element.
+
+[id="instancemethod-getcolumn"]
+getColumn():: number
+Returns the number of columns in the grid.
+
+[id="instancemethod-getgriditems"]
+getGridItems()::
+Returns GridItemHTMLElement[] -- a list of GridItem HTML elements (excluding temporary placeholder) in the DOM order, whether they are node items yet or not (looks by class).
+
+[id="instancemethod-getmargin"]
+getMargin()::
+Returns the current margin value (undefined if all 4 sides don't match).
+
+[id="instancemethod-isareaempty"]
+isAreaEmpty(x, y, width, height)::
+Checks if the specified area is empty.
+
+[id="instancemethod-load"]
+load(items: GridStackWidget[], addRemove: boolean | AddRemoveFcn = GridStack.addRemoveCB || true)::
+Loads the widgets from a list of widgets.
+Used to restore a grid layout for a saved layout list -- see xref:instancemethod-save[`save()`].
+This will call xref:instancemethod-update[`update()`] on each (matching by id) or add/remove widgets that are not there.
+
+* `addRemove` -- boolean (optional, default: `true`) or callback method can be passed to control if and how missing widgets can be added/removed, giving the user control of insertion.
+
++
+See also http://gridstackjs.com/demo/serialization.html[serialization demo].
+
+[id="instancemethod-makewidget"]
+makeWidget(el: string)::
+Converts HTML content identified by a selector into a widget and returns it.
+If you add elements to your gridstack container by hand, you have to tell gridstack afterwards to make them widgets.
++
+NOTE: If you want gridstack to add the elements for you, use `addWidget()` instead.
++
+Parameters:
+
+* `el` - element to convert to a widget
+
++
+[source,javascript]
+----
+let grid = GridStack.init();
+// ... Create some HTML content, possibly looking like: 
+// <div id="item-1" gs-x="0" gs-y="0" gs-w="3" gs-h="2"></div>'
+grid.makeWidget('#item-1');
+----
+
+[id="instancemethod-makesubgrid"]
+makeSubGrid(el)::
+Adds a subgrid into an existing grid.
++
+[source,javascript]
+----
+const grid = Gridstack.init()
+// ... Create some HTML content, possibly looking like: 
+// <div id="gsi-1" gs-x="0" gs-y="0" gs-w="3" gs-h="2">
+//  <div class="grid-stack" id="nested-grid">
+//    <div id="gsi-2" gs-w="3" gs-h="2"></div>
+//  </div>
+//</div>
+grid.makeSubGrid(grid.el.getElementById('nested-grid'))
+----
++
+Make sure that the subgrid is inside of a grid item.
++
+IMPORTANT: Subgrids themselves are grid items capable of containing other grid items.
+
+[id="instancemethod-margin"]
+margin(value: numberOrString)::
+Sets the gap between grid item and content (default?: 10).
+This will set margin on all 4 sides.
+The following CSS formats are supported:
+
+* _integer_ (px)
+* _string_ with optional units, such as `'5'`, `'2em'`, `'20px'`, `'2rem'`
+* _string_ with space-separated values:
+** `'5px 10px 0 20px'` for all 4 sides
+** `'5em 10em'` for top/bottom and left/right pairs like CSS
+
++
+NOTE: All sides must have the same unit (the last one wins, default: px).
+
+[id="instancemethod-movable"]
+movable(el, val)::
+Enables/disables dragging of specific grid element by the user.
+If you want all items and have it affect future items, use `enableMove()` instead.
+No-op for static grids.
++
+NOTE: If you are looking to prevent an item from moving (due to being pushed around by another during collision) use the xref:gridstackwidget-options.adoc#widget-locked[`locked` Widget option] instead.
++
+Parameters:
+
+* `el` -- widget to modify
+* `val` -- if `true`, widget will be draggable
+
+[id="instancemethod-removewidget"]
+removeWidget(el, removeDOM = true, triggerEvent = true)::
+Removes a widget from the grid.
+Parameters:
+
+* `el` -- widget to remove
+* `removeDOM` -- if `false`, the node won't be removed from the DOM (optional; default: `true`)
+* `triggerEvent` -- if `false` (quiet mode), the element will not be added to removed list and no 'removed' callbacks will be called (default: `true`)
+
+[id="instancemethod-removeall"]
+removeAll(removeDOM = true)::
+Removes all widgets from the grid.
+Parameters:
+
+* `removeDOM` -- if `false`, nodes won't be removed from the DOM (optional; default: `true`)
+
+[id="instancemethod-resizable"]
+resizable(el, val)::
+Enables/disables user resizing of specific grid element.
+No-op for static grids.
++
+NOTE: If you want all items and have it affect future items, use xref:instancemethod-enableresize[`enableResize()`] instead.
++
+Parameters:
+
+* `el` -- widget to modify
+* `val` -- if `true`, the widget will be resizable
+
+[id="instancemethod-resizetocontent"]
+resizeToContent(el: GridItemHTMLElement, useAttrSize = false)::
+Updates widget height to match the content height to avoid v-scrollbar or dead space.
++
+NOTE: This method assumes only 1 child under `resizeToContentParent='.grid-stack-item-content'` (sized to gridItem minus padding) that is at the entire content size wanted.
++
+Parameters:
+
+* `useAttrSize` -- set to `true` if `GridStackNode.h` should be used instead of the actual container height when we don't need to wait for animation to finish to get the actual DOM heights
+
+[id="instancemethod-rotate"]
+rotate(els: GridStackElement, relative?: Position)::
+Swaps `w` and `h` of the passed node.
+Called when the user presses the `R` key during dragging.
++
+Parameters:
+
+* `els` -- widget or selector of objects to modify
+* `relative` -- optional pixel coord relative to upper-left corner to rotate around (will keep that cell under cursor)
+
+[id="instancemethod-save"]
+save(saveContent = true, saveGridOpt = false)::
+Saves the current layout.
++
+Returns: `GridStackWidget[]` | `GridStackOptions` -- a list of widgets for serialization which might include any nested grids or a full grid option, including `.children` list of widgets
++
+Parameters:
+
+* `saveContent` -- if `true` (default) the latest HTML inside `.grid-stack-content` will be saved to the `GridStackWidget.content` field, else it will be removed
+* `saveGridOpt` -- if `true` (default: `false`), save the grid options itself, so you can call the new xref:static-methods.adoc#staticmethod-addgrid[`GridStack.addGrid()`] to recreate everything from scratch. `GridStackOptions.children` would then contain the widget list instead.
+
++
+See also http://gridstackjs.com/demo/serialization.html[serialization demo] and http://gridstackjs.com/demo/nested.html[nested demo].
+
+[id="instancemethod-setanimation"]
+setAnimation(doAnimate)::
+Toggles the grid animation state by toggling the `grid-stack-animate` class.
++
+Parameters:
+
+* `doAnimate` -- if `true`, the grid will be animated
+
+[id="instancemethod-setstatic"]
+setStatic(staticValue)::
+Toggle the grid static state by toggling the `grid-stack-static` class.
+
+* `staticValue` -- if `true`, the grid becomes static
+
+[id="instancemethod-update"]
+update(el: GridStackElement, opts: GridStackWidget)::
+Updates widget position/size and other info.
++
+NOTE: If you need to call this on all nodes, use xref:instancemethod-load[`load()`] instead, which will update what changed and more.
++
+Parameters:
+
+* `el` -- widget to move (element or class string)
+* `opts` -- updates all the possible item options passed in the structure (x, y, h, w, etc.)
+Only set options will be updated.
+
+[id="instancemethod-willitfit"]
+willItFit(x, y, width, height, autoPosition)::
+Returns `true` if the height of the grid will be less than the vertical constraint.
+Always returns `true` if the grid doesn't have the height constraint.
++
+[source,javascript]
+----
+if (grid.willItFit(newNode.x, newNode.y,
+    newNode.w, newNode.h, newNode.autoPosition)) {
+  grid.addWidget(newNode.el, newNode);
+}
+else {
+  alert('Not enough free space to place the widget');
+}
+----
