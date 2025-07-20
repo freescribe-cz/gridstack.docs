@@ -1,0 +1,14 @@
+[id="gridstack-options-responsive"]
+= Responsive grid options
+
+columnWidth?: number - wanted width to maintain (+-50%) to dynamically pick a column count
+columnMax?: number - maximum number of columns allowed (default: 12). Note: make sure to have correct CSS to support this.
+layout?: ColumnOptions - global re-layout mode when changing columns
+breakpointForWindow?: boolean - specify if breakpoints are for window size or grid size (default:false = grid)
+breakpoints?: Breakpoint[] - explicit width:column breakpoints instead of automatic 'columnWidth'. Note: make sure to have correct CSS to support this.
+
+== Breakpoint
+
+w?: number - width
+c: number - column
+layout?: ColumnOptions - re-layout mode if different from global one

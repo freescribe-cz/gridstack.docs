@@ -1,0 +1,5 @@
+= GridStackWidget options
+
+GridStackWidget options
+
+include::partial$widget-options.adoc[leveloffset=+1]

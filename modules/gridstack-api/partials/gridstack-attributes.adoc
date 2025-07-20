@@ -1,0 +1,9 @@
+= GridStack HTML attributes
+
+Most of the above options are also available as HTML attributes using the `gs-` name prefix with standard dash lower case naming convention, such as `gs-column`, `gs-min-row`, `gs-static`.
+
+Extras:
+
+* `gs-current-row` - (internal) current rows amount.
+Set by the library only.
+Can be used by CSS rules.

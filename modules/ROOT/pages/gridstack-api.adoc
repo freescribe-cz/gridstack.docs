@@ -1,3 +1,0 @@
-= GridStack API
-
-// TODO

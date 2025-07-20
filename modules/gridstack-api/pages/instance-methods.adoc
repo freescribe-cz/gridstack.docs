@@ -1,0 +1,3 @@
+= Instance GridStack methods
+
+instance-methods.adoc

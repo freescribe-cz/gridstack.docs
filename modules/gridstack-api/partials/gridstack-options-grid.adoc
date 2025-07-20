@@ -1,0 +1,28 @@
+[id="gridstack-options-grid"]
+= Grid options
+
+[id="api-grid-option-acceptwidgets"]
+acceptWidgets:: Default: `false`
++
+Accept widgets dragged from other grids or from outside.
+One of:
+
+* `true` will accept an HTML element having `grid-stack-item` as a class name, does not accept other element classes
+* a _string_ containing an explicit class name of grid items to accept
+* _function (el: Element)_: boolean function called before an item will be accepted when entering a grid.
+The function will be passed the item being dragged and should return `{true | false}`.
+See also https://github.com/gridstack/gridstack.js/blob/master/demo/two.html[two-grid demo].
+
+animate:: Default: `true`
++
+Turns animation on to smooth transitions.
+
+auto:: Default: true
++
+GridStack will initialize existing items automatically.
+
+children?:: xref:gridstackwidget-options.adoc[`GridStackWidget[]`]
++
+A list of grid items to create when calling `load()` or `addGrid()`
+
+

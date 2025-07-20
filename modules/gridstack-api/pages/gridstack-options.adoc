@@ -1,0 +1,13 @@
+= GridStack options
+
+GridStack options that you can use when you initialize a grid by using `GridStack.init()` or `GridStack.initAll()`.
+
+include::partial$gridstack-options-grid.adoc[leveloffset=+1]
+
+include::partial$gridstack-options-widgets.adoc[leveloffset=+1]
+
+include::partial$gridstack-options-responsive.adoc[leveloffset=+1]
+
+include::partial$gridstack-options-dddragopt.adoc[leveloffset=+1]
+
+include::partial$gridstack-attributes.adoc[leveloffset=+1]

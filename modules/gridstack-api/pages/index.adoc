@@ -1,0 +1,6 @@
+= GridStack API
+
+Basic concepts:
+
+* Grid -- the GridStack object
+* GridStackWidget -- a grid item
