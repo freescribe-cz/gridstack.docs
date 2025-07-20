@@ -2,7 +2,15 @@
 
 GridStack options that you can use when you initialize a grid by using `GridStack.init()` or `GridStack.initAll()`.
 
+== Overview
+
 *Grid options*: xref:grid-option-acceptwidgets[acceptWidgets] | xref:grid-option-alwaysshowresizehandle[alwaysShowResizeHandle] | xref:grid-option-animate[animate] | xref:grid-option-auto[auto] | xref:grid-option-cellheight[cellHeight] | xref:grid-option-cellheightthrottle[cellHeightThrottle] | xref:grid-option-children[children] | xref:grid-option-column[column] | xref:grid-option-columnopts[columnOpts] | xref:grid-option-class[class] | xref:grid-option-disabledrag[disableDrag] | xref:grid-option-disableresize[disableResize] | xref:grid-option-draggable[draggable] | xref:grid-option-engineclass[engineClass] | xref:grid-option-float[float] | xref:grid-option-handle[handle] | xref:grid-option-handleclass[handleClass] | xref:grid-option-itemclass[itemClass] | xref:grid-option-lazyload[lazyLoad] | xref:grid-option-margin[margin] | xref:grid-option-maxrow[maxRow] | xref:grid-option-minrow[minRow] | xref:grid-option-nonce[nonce] | xref:grid-option-placeholderclass[placeholderClass] | xref:grid-option-placeholdertext[placeholderText] | xref:grid-option-resizable[resizable] | xref:grid-option-removable[removable] | xref:grid-option-removetimeout[removeTimeout] | xref:grid-option-row[row] | xref:grid-option-rtl[rtl] | xref:grid-option-sizetocontent[sizeToContent] | xref:grid-option-staticgrid[staticGrid]
+
+*Responsive*: xref:responsive-columnwidth[columnWidth] | xref:responsive-columnmax[columnMax] | xref:responsive-layout[layout] | xref:responsive-breakpointforwindow[breakpointForWindow] | xref:responsive-breakpoints[breakpoints]
+
+*Breakpoint*: xref:breakpoint-w[w] | xref:breakpoint-c[c] | xref:breakpoint-layout[layout]
+
+*DDDragOpt*: xref:dddragopt-handle[handle] | xref:dddragopt-appendto[appendTo] | xref:dddragopt-pause[pause] | xref:dddragopt-scroll[scroll] | xref:dddragopt-cancel[cancel] | xref:dddragopt-helper[helper]
 
 include::partial$gridstack-options-grid.adoc[leveloffset=+1]
 
