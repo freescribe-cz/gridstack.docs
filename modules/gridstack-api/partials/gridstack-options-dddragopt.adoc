@@ -1,3 +1,38 @@
+[id="gridstack-options-dddragopt"]
 = DDDragOpt
 
-TODO
+[id="dddragopt-handle"]
+handle?:: _(string)_
+CSS class selector of items that can be dragged.
++
+Default: `'.grid-stack-item-content'`
+
+[id="dddragopt-appendto"]
+appendTo?:: _(string)_
++
+Default: `'body'`
+// TODO Is this even still used?
+
+[id="dddragopt-pause"]
+pause?:: _(boolean | number)_
+If set (`true` | _msec_), dragging placement (collision) will only happen after a pause by the user.
++
+NOTE: This is global.
+
+[id="dddragopt-scroll"]
+scroll?:: _(boolean)_
+Enable or disable scrolling when an element is dragged to the bottom or top of the grid.
++
+Default: `true`
+
+[id="dddragopt-cancel"]
+cancel?:: _(string)_
+Prevents dragging from initiating on specified elements.
+A comma-separated list of CSS selectors, for example `'.no-drag'`.
++
+Default: `'input,textarea,button,select,option'`
+
+[id="dddragopt-helper"]
+helper?:: _`'clone'` | `((el: HTMLElement) => HTMLElement)`_
+A helper function when dragging side panel items that need to be cloned before dropping.
+For example `'clone'` or your own method.
