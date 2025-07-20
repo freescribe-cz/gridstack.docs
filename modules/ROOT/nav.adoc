@@ -1,1 +1,7 @@
-* xref:new-page.adoc[]
+* xref:demo.adoc[]
+* xref:get-gridstack.adoc[]
+* xref:basic-usage.adoc[]
+* xref:usage-examples.adoc[]
+* xref:gridstack-api.adoc[]
+* xref:extend.adoc[]
+* xref:contribute.adoc[]

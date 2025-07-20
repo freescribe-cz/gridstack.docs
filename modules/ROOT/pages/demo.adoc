@@ -1,0 +1,3 @@
+= Demo
+
+For demonstration, see https://gridstackjs.com/demo/index.html[GridStack Demos].

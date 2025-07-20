@@ -1,5 +1,5 @@
 site:
-  title: Gridstack Documentation
+  title: GridStack Documentation
   start_page: gridstack-docs::index.adoc
 content:
   sources:

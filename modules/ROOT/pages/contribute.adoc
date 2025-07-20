@@ -1,0 +1,15 @@
+= Contribute
+
+== Repository
+
+https://github.com/gridstack/gridstack.js
+
+== Report a bug
+
+Fork our link:https://jsfiddle.net/adumesny/jqhkry7g[JSFiddle], modify your fork by including your code, file a https://github.com/gridstack/gridstack.js/issues[GitHub issue], and include the link to your Fiddle fork.
+
+[NOTE]
+====
+This is a volunteering project.
+Bug fixes can be prioritized by sponzoring.
+====

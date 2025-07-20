@@ -1,0 +1,21 @@
+= Basic usage
+
+== Include in a script
+
+ES6 or Typescript:
+
+[source, javascript]
+----
+import 'gridstack/dist/gridstack.min.css';
+import { GridStack } from 'gridstack';
+----
+
+== Include in HTML
+
+Single combined file, notice the `-all.js`:
+
+[source, html]
+----
+<link href="node_modules/gridstack/dist/gridstack.min.css" rel="stylesheet"/>
+<script src="node_modules/gridstack/dist/gridstack-all.js"></script>
+----
