@@ -1,8 +1,10 @@
 = Get GridStack
 
+////
 == Download
 
-TODO
+TODO Provide the gridstack.min.css and gridstack-all.js files for direct download
+////
 
 == Install
 

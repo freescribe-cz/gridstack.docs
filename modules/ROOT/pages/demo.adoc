@@ -1,3 +1,7 @@
 = Demo
 
-For demonstration, see https://gridstackjs.com/demo/index.html[GridStack Demos].
+For demonstration, see the following resources:
+
+* https://gridstackjs.com/#demo[Basic demo]
+* https://gridstackjs.com/#advancedDemo[Advanced demo]
+* https://gridstackjs.com/demo/index.html[Other demos]
