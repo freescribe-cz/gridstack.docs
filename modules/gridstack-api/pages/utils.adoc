@@ -1,3 +1,9 @@
 = GridStack.Utils
 
-utils.adoc
+GridStack.Utils.sort(nodes[, dir])::
+Sorts array of nodes.
+
+* `nodes` -- array to sort
+* Optional: `dir` -- sorting direction:
+** `1` for ascending
+** `-1` for descending
