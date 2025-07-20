@@ -5,3 +5,4 @@ For demonstration, see the following resources:
 * https://gridstackjs.com/#demo[Basic demo]
 * https://gridstackjs.com/#advancedDemo[Advanced demo]
 * https://gridstackjs.com/demo/index.html[Other demos]
+* https://github.com/gridstack/gridstack.js/tree/master/demo[Source code for other demos]

@@ -1,7 +1,10 @@
-* xref:demo.adoc[]
 * xref:get-gridstack.adoc[]
 * xref:basic-usage.adoc[]
-* xref:usage-examples.adoc[]
-* xref:gridstack-api.adoc[]
-* xref:extend.adoc[]
+//* xref:usage-examples.adoc[] // TODO
+* xref:gridstack-api:index.adoc[]
++
+--
+include::gridstack-api:partial$nav.adoc[]
+--
+//* xref:extend.adoc[] // TODO
 * xref:contribute.adoc[]

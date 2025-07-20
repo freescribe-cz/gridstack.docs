@@ -1,5 +1,11 @@
 name: gridstack-docs
 version: ~
 title: GridStack.JS
+asciidoc:
+  attributes:
+    project: GridStack
+    team: https://github.com/orgs/gridstack/people[{project} team]
+    contributors: https://github.com/gridstack/gridstack.js/graphs/contributors[{project} contributors]
+
 nav:
 - modules/ROOT/nav.adoc

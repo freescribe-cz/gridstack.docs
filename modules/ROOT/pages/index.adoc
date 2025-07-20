@@ -1,8 +1,10 @@
 = GridStack Docs
 
-GridStack.JS is a JavaScript library that lets you build interactive dashboards in minutes.
+GridStack.JS is a JavaScript library that lets you build complex, interactive dashboards.
+
+include::demo.adoc[leveloffset=+1]
 
 == Links
 
-* https://github.com/gridstack/gridstack.js[GridStack repository on GitHub]
+* https://github.com/gridstack[GridStack repositories on GitHub]
 * https://gridstackjs.com[GridStackJS.com]

@@ -1,15 +1,27 @@
 = Contribute
 
-== Repository
+This project is maintained by the {team}.
 
-https://github.com/gridstack/gridstack.js
+We appreciate your contributions, {contributors}!
+
+== Repositories
+
+https://github.com/gridstack/
+
+// * Code: https://github.com/gridstack/gridstack.js
+// * Docs: https://github.com/gridstack/gridstack.docs
 
 == Report a bug
 
-Fork our link:https://jsfiddle.net/adumesny/jqhkry7g[JSFiddle], modify your fork by including your code, file a https://github.com/gridstack/gridstack.js/issues[GitHub issue], and include the link to your Fiddle fork.
+Proceed as follows:
+
+. Fork our link:https://jsfiddle.net/adumesny/jqhkry7g[JSFiddle].
+. Modify your fork by including your code.
+. File a https://github.com/gridstack/gridstack.js/issues[GitHub Issue].
+Include a link to your Fiddle in the issue.
 
 [NOTE]
 ====
-This is a volunteering project.
+This is a volunteers' project.
 Bug fixes can be prioritized by sponzoring.
 ====
