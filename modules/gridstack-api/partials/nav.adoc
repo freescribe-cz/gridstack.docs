@@ -1,6 +1,6 @@
-** xref:gridstack-api:gridstack-options.adoc[]
 ** xref:gridstack-api:static-methods.adoc[]
 ** xref:gridstack-api:instance-methods.adoc[]
+** xref:gridstack-api:gridstack-options.adoc[]
 ** xref:gridstack-api:gridstackwidget-options.adoc[]
 ** xref:gridstack-api:events.adoc[]
 ** xref:gridstack-api:utils.adoc[]
