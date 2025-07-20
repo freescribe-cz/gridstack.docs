@@ -1,3 +1,75 @@
 = Static GridStack methods
 
-Static GridStack methods
+You can call static methods on the uninstantiated GridStack class, typically to create an object instance.
+
+.Usage
+[example]
+GridStack.init()
+
+== Overview
+
+*Static methods*: xref:staticmethod-init[init()] | xref:staticmethod-initall[initAll()] | xref:staticmethod-addgrid[addGrid()] | xref:staticmethod-setupdragin[setupDragIn()] | xref:staticmethod-registerengine[registerEngine()]
+
+== Static methods
+
+[id="staticmethod-init"]
+init(options: GridStackOptions = {}, elOrString: GridStackElement = '.grid-stack'): GridStack::
+Call to initialize an HTML element, or selector string, into a grid.
+Returns the grid.
+Calling it again will return the existing instance, ignoring any passed options.
+
+* @param options grid options (optional)
+* @param elOrString element or CSS selector (first one used) to convert to a grid (default to '.grid-stack' class selector)
+
++
+
+[source,javascript]
+----
+let grid = GridStack.init();
+// Note: the HTMLElement (of type GridHTMLElement)
+// will store a `gridstack: GridStack` value that can be retrieved later
+let grid = document.querySelector('.grid-stack').gridstack;
+----
+
++
+There is also an initAll() version that supports initialization of multiple grids at once.
+Or you can use addGrid() to create the entire grid from JSON.
+
+[id="staticmethod-initall"]
+initAll(options: GridStackOptions = {}, selector = '.grid-stack'): GridStack[]::
+Call to initialize a list of elements (given a selector) and return an array of grids.
+
+* @param options grid options (optional)
+* @param selector elements selector to convert to grids (default to '.grid-stack' class selector)
+
++
+[source,javascript]
+----
+let grids = GridStack.initAll();
+grids.forEach(...)
+----
+
+[id="staticmethod-addgrid"]
+addGrid(parent: HTMLElement, opt: GridStackOptions = {}): GridStack::
+Call to create a grid with the given options, including loading any children from a JSON structure.
+This will call GridStack.init(), then grid.load() on any passed children (recursively).
+Great alternative to calling init() if you want entire grid to come from JSON serialized data, including options.
+
+* @param parent HTML element parent to the grid
+* @param opt grids options used to initialize the grid, and list of children
+see nested.html demo
+
+[id="staticmethod-setupdragin"]
+setupDragIn(dragIn?: string | HTMLElement[], dragInOptions?: DDDragOpt, widgets?: GridStackWidget[], root = HTMLElement | Document)::
+Call to setup dragging in from the outside (say toolbar), by specifying the class selection and options.
+Called during GridStack.init() as options, but can also be called directly (last param are cached) in case the toolbar is dynamically create and needs to change later.
+
+* @param dragIn string selector (ex: '.sidebar-item') or list of dom elements
+* @param dragInOptions options - see DDDragOpt. default: {appendTo: 'body', helper: 'clone'}
+* @param widgets GridStackWidget def to assign to each element which defines what to create on drop Note: you can instead use DOM attr data-gs-widget for complete JSON string of that GridStackWidget.
+* @param root optional root which defaults to document (for shadow dom pass the parent HTMLDocument)
+
+[id="staticmethod-registerengine"]
+registerEngine(engineClass: typeof GridStackEngine)::
+Call to specify global custom engine subclass.
+See also xref:gridstack-options.adoc#grid-option-engineclass[GridStackOptions.engineClass] if you need to register the engine with just one instance.
