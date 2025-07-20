@@ -1,4 +1,5 @@
-= GridStack HTML attributes
+[id="gridstack-options-attributes"]
+= HTML attributes
 
 Most of the above options are also available as HTML attributes using the `gs-` name prefix with standard dash lower case naming convention, such as `gs-column`, `gs-min-row`, `gs-static`.
 

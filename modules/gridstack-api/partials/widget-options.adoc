@@ -1,3 +1,4 @@
+[id="widget-options"]
 = GridStackWidget options
 
 TODO
