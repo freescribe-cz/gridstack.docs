@@ -1,0 +1,5 @@
+name: gridstack-docs
+version: ~
+title: Gridstack
+nav:
+- modules/ROOT/nav.adoc
