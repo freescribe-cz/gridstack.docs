@@ -1,5 +1,7 @@
 # GridStack.docs
 
-## Preview
+This repo has the ambition of becoming an official GridStack.JS documentation.
 
-https://freescribe-cz.github.io/gridstack.docs/
+As of now, this is unofficial, in negotiation, and work in progress.
+
+Use the [official GridStack documentation](https://github.com/gridstack/gridstack.js/blob/master/doc/README.md)!
