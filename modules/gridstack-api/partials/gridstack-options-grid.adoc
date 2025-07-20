@@ -1,7 +1,7 @@
 [id="gridstack-options-grid"]
 = Grid options
 
-[id="api-grid-option-acceptwidgets"]
+[id="grid-option-acceptwidgets"]
 acceptWidgets::
 Accept widgets dragged from other grids or from outside.
 One of the following values:
@@ -17,6 +17,7 @@ See also https://github.com/gridstack/gridstack.js/blob/master/demo/two.html[two
 +
 Default: `false`
 
+[id="grid-option-alwaysshowresizehandle"]
 alwaysShowResizeHandle::
 Controls display of resizing handles on widgets.
 +
@@ -32,16 +33,19 @@ See also http://gridstack.github.io/gridstack.js/demo/mobile.html[mobile demo].
 +
 Default: `'mobile'`
 
+[id="grid-option-animate"]
 animate:: _(boolean)_
 Enables animation to smoothen transitions.
 +
 Default: `true`
 
+[id="grid-option-auto"]
 auto:: _(boolean)_
 GridStack will initialize existing items automatically.
 +
 Default: `true`
 
+[id="grid-option-cellheight"]
 cellHeight:: 
 Height of a single grid cell.
 One of the following values:
@@ -58,7 +62,7 @@ See http://gridstackjs.com/demo/cell-height.html[CellHeight demo].
 +
 Default: `'auto'`
 
-[id="cellHeightThrottle"]
+[id="grid-option-cellheightthrottle"]
 cellHeightThrottle?:: _(number)_
 Throttle time delay (in ms) used when `cellHeight='auto'` to improve performance vs usability.
 +
@@ -66,9 +70,11 @@ WARNING: The `0` value will make it instant at the cost of re-creating the CSS f
 +
 Default?: `100`
 
+[id="grid-option-children"]
 children?:: _(xref:gridstackwidget-options.adoc[GridStackWidget[\]])_
 A list of grid items to create when calling `load()` or `addGrid()`.
 
+[id="grid-option-column"]
 column::
 The number of columns in a grid:
 
@@ -80,63 +86,75 @@ see also http://gridstackjs.com/demo/nested.html[nested demo].
 +
 Default: `12`
 
+[id="grid-option-columnopts"]
 columnOpts?:: _(xref:gridstack-options-responsive[Responsive])_
 Describes the responsive nature of the column grid.
 +
 Default: `???`
 
+[id="grid-option-class"]
 class?:: _(string)_
 An additional CSS class on top of `.grid-stack`, which is required for our CSS to differentiate this grid instance from other grids in a multi-grid setup.
 
+[id="grid-option-disabledrag"]
 disableDrag:: _(boolean)_
 Disables dragging of widgets.
 +
 Default: `false`
 
+[id="grid-option-disableresize"]
 disableResize:: _(boolean)_
 Disables resizing of widgets.
 +
 Default: `false`
 
+[id="grid-option-draggable"]
 draggable:: _(xref:gridstack-options-dddragopt[DDDragOpt])_
 Override draggable options.
 +
 Default: `{handle: '.grid-stack-item-content', appendTo: 'body', scroll: true}`
 
+[id="grid-option-engineclass"]
 engineClass:: _(JavaScript class)_
 The JavaScript class of the engine to create.
 If you have a subclass of the `GridStackEngine`, you can register it here.
 +
 Default: `GridStackEngine`
 
+[id="grid-option-float"]
 float:: _(boolean)_
 Enable floating widgets.
 See example.
 +
 Default: `false`
 
+[id="grid-option-handle"]
 handle:: _(string)_
 Draggable handle class selector. 
 +
 Default: `'.grid-stack-item-content'`
 
+[id="grid-option-handleclass"]
 handleClass:: _(string)_
 Draggable handle class, such as `'grid-stack-item-content'`.
 If set, `handle` is ignored.
 +
 Default: `null`
 
+[id="grid-option-itemclass"]
 itemClass:: _(string)_
 Grid item (widget) class.
 +
 Default: `'grid-stack-item'`
 
+[id="grid-option-lazyload"]
 lazyLoad?:: _(boolean)_ 
 Create widgets only when they scroll into view (visible).
 Also overridable per widget in xref:gridstackwidget-options.adoc[GridStackWidget].
 +
 Default: `???`
 
+[id="grid-option-margin"]
 margin::
 The gap size around grid item and content.
 One of the following values:
@@ -147,36 +165,43 @@ One of the following values:
 +
 You can also set the margins individually (default to `margin`): *marginTop*, *marginRight*, *marginBottom*, *marginLeft*.
 
+[id="grid-option-maxrow"]
 maxRow:: _(integer)_
 The maximum number of rows.
 +
 Default: `0` (unlimited)
 
+[id="grid-option-minrow"]
 minRow:: _(integer)_
 The minimum number of rows, which is handy to prevent grid from collapsing when empty. 
 When not set, the `min-height` CSS attribute on the grid `<div>` (in pixels) can be used, which will round to the closest row.
 +
 Default: `0`
 
+[id="grid-option-nonce"]
 nonce::
 If you are using a nonce-based Content Security Policy, pass your nonce here and GridStack will add it to the `<style>` elements it creates.
 
+[id="grid-option-placeholderclass"]
 placeholderClass:: _(string)_
 Widget placeholder class.
 +
 Default: `'grid-stack-placeholder'`
 
+[id="grid-option-placeholdertext"]
 placeholderText:: _(string)_
 Widget placeholder default content.
 +
 Default: `''` (empty)
 
+[id="grid-option-resizable"]
 resizable:: _({handles: 'string'})_
 Define locations of handles by which widgets can be resized.
 Handles _string_ can be any combo of `'n,ne,e,se,s,sw,w,nw'` or `'all'`.
 +
 Default: `{handles: 'se'}` (south east)
 
+[id="grid-option-removable"]
 removable:: _(boolean or string)_
 Enable removal of widgets by dragging them outside of the grid.
 +
@@ -185,17 +210,20 @@ See also http://gridstackjs.com/demo/two.html[two-grid demo].
 +
 Default: `false`
 
+[id="grid-option-removetimeout"]
 removeTimeout:: _(integer)_
 Time in milliseconds before widget is removed when dragged outside of the grid.
 +
 Default: `2000`
 
+[id="grid-option-row"]
 row::
 Fixed number of grid rows.
 This is a shortcut of `minRow: N` and `maxRow: N`.
 +
 Default: `0` (no constraint)
 
+[id="grid-option-rtl"]
 rtl::
 Turns grid Right-to-Left.
 See also https://gridstackjs.com/demo/right-to-left(rtl).html[right-to-left demo].
@@ -204,11 +232,13 @@ Possible values: `true`, `false`, `'auto'`
 +
 Default: 'auto'
 
+[id="grid-option-sizetocontent"]
 sizeToContent:: _(boolean)_
 Size grid items automatically according to their content, calling resizeToContent(el) whenever the grid or item is resized.
 +
 Default: `???`
 
+[id="grid-option-staticgrid"]
 staticGrid::
 Disables drag&drop and resize.
 If disabled, the user cannot move or resize widgets, but code can still move and oneColumnMode will still work.
