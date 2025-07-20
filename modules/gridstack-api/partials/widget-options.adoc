@@ -1,4 +1,70 @@
 [id="widget-options"]
-= GridStackWidget options
+= Widget options
 
-TODO
+Options that you can pass when calling addWidget(), update(), load() and other methods.
+
+[id="widget-autoposition"]
+autoPosition::
+Ignore `x` and `y` attributes and place the widget to the first available position.
+Having either one missing will also do that.
+
+[id="widget-xy"]
+x, y:: _(number)_
+Set the widget position to a column and row.
+NOTE: If one is missing, this will autoPosition the widget.
+
+[id="widget-wh"]
+w, h:: _(number)_
+Set the widget size in the number of columns and rows.
++
+Defaults: `w: 1`, `h: 1` (1x1)
+
+[id="widget-constraints"]
+maxW, minW, maxH, minH::
+Element constraints in column/row.
++
+Default: none
+
+[id="widget-locked"]
+locked::
+Sticks widget to its current position, which means another widget wouldn't be able to move it during dragging or resizing.
+The widget can still be dragged or resized by the user.
++
+NOTE: You need to add `noResize` and `noMove` attributes to completely lock the widget.
+
+[id="widget-noresize"]
+noResize::
+Disable widget resizing.
+
+[id="widget-nomove"]
+noMove::
+Disable widget moving.
+
+[id="widget-id"]
+id:: _(number | string)_
+Widget identifier.
+Good for quick identification, for example in a change event.
+
+[id="widget-content"]
+content:: _(string)_
+The HTML content to be added when calling grid.load()/addWidget() as the content inside the widget.
+
+[id="widget-sizetocontent"]
+sizeToContent?:: _(boolean | number)_
+Make gridItem size itself to the content, calling GridStack.resizeToContent(el) whenever the grid or item is resized.
+NOTE: This also allows you to set a maximum `h` value (but user changeable during normal resizing) to prevent unlimited content from taking too much space (get scrollbar).
+
+[id="widget-subgrid"]
+subGrid?:: _(xref:gridstack-options.adoc[GridStackOptions])_
+Optional: Nested grid options and a list of its children.
+
+[id="widget-subgriddynamic"]
+subGridDynamic?:: _(boolean)_
+Enable/disable the creation of sub-grids on the fly by dragging items completely over others (nest) vs partially (push).
++
+IMPORTANT: Forces `DDDragOpt.pause: true` to accomplish that.
+
+[id="widget-lazyload"]
+lazyLoad?:: _(boolean)_
+Create widgets only when they scroll into view (visible).
+See also xref:gridstack-options.adoc#grid-option-lazyload[lazyLoad] grid option.
