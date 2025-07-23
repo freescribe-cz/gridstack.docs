@@ -1,14 +1,45 @@
 [id="gridstack-options-responsive"]
-= Responsive grid options
+= Responsive
 
-columnWidth?: number - wanted width to maintain (+-50%) to dynamically pick a column count
-columnMax?: number - maximum number of columns allowed (default: 12). Note: make sure to have correct CSS to support this.
-layout?: ColumnOptions - global re-layout mode when changing columns
-breakpointForWindow?: boolean - specify if breakpoints are for window size or grid size (default:false = grid)
-breakpoints?: Breakpoint[] - explicit width:column breakpoints instead of automatic 'columnWidth'. Note: make sure to have correct CSS to support this.
+[id="responsive-columnwidth"]
+columnWidth?:: _(number)_
+Maintain this width (±50%) to dynamically pick a column count.
 
+[id="responsive-columnmax"]
+columnMax?:: _(number)_
+The maximum number of columns allowed.
++
+NOTE: make sure to have correct CSS to support this.
++
+Default: `12`
+
+[id="responsive-layout"]
+layout?:: _(ColumnOptions)_
+The global re-layout mode when changing columns.
+
+[id="responsive-breakpointforwindow"]
+breakpointForWindow?:: _(boolean)_
+Specify whether breakpoints are for window size (true) or grid size (false).
++
+Default: `false` (for grid)
+
+[id="responsive-breakpoints"]
+breakpoints?:: _(xref:gridstack-options-responsive-breakpoint[Breakpoint[\]])_
+Explicit width:column breakpoints instead of automatic `'columnWidth'`.
++
+NOTE: Make sure to have correct CSS to support this.
+
+[id="gridstack-options-responsive-breakpoint"]
 == Breakpoint
 
-w?: number - width
-c: number - column
-layout?: ColumnOptions - re-layout mode if different from global one
+[id="breakpoint-w"]
+w?:: _(number)_
+Width.
+
+[id="breakpoint-c"]
+c:: _(number)_
+Column.
+
+[id="breakpoint-layout"]
+layout?:: _(ColumnOptions)_
+Re-layout mode if different from the global re-leayout mode.

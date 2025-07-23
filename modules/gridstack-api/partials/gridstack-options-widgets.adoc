@@ -1,4 +1,0 @@
-[id="gridstack-options-widgets"]
-= Global widget options
-
-TODO

@@ -1,5 +1,7 @@
 = GridStackWidget options
 
-GridStackWidget options
+== Overview
+
+*Widget options*: xref:widget-autoposition[autoPosition] | xref:widget-xy[x] | xref:widget-xy[y] | xref:widget-wh[w] | xref:widget-wh[h] | xref:widget-constraints[maxW] | xref:widget-constraints[minW] | xref:widget-constraints[maxH] | xref:widget-constraints[minH] | xref:widget-locked[locked] | xref:widget-noresize[noResize] | xref:widget-nomove[noMove] | xref:widget-id[id] | xref:widget-content[content] | xref:widget-sizetocontent[sizeToContent] | xref:widget-subgrid[subGrid] | xref:widget-subgriddynamic[subGridDynamic] | xref:widget-lazyload[lazyLoad]
 
 include::partial$widget-options.adoc[leveloffset=+1]
